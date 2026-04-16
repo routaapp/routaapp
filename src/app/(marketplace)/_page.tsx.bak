@@ -1,0 +1,64 @@
+/**
+ * Página de inicio del marketplace
+ * Ruta: /
+ *
+ * En .NET sería el HomeController → Index() action.
+ * Es un Server Component por defecto — se renderiza en el servidor (como una Razor Page).
+ */
+
+export default function HomePage() {
+  return (
+    <main className="min-h-screen" style={{ backgroundColor: "#FAFAF7" }}>
+      {/* Hero */}
+      <section className="flex flex-col items-center justify-center py-24 px-4 text-center">
+        <h1
+          className="text-5xl font-bold mb-4"
+          style={{ color: "#3DAA7A" }}
+        >
+          Descubre LATAM diferente
+        </h1>
+        <p className="text-xl text-gray-600 mb-10 max-w-xl">
+          Reserva experiencias únicas con guías locales verificados en toda
+          Latinoamérica.
+        </p>
+
+        {/* Barra de búsqueda — placeholder por ahora */}
+        <div className="flex gap-2 w-full max-w-lg">
+          <input
+            type="text"
+            placeholder="¿A dónde vas? ¿Qué quieres hacer?"
+            className="flex-1 border border-gray-300 rounded-lg px-4 py-3 text-gray-700 focus:outline-none focus:ring-2"
+            style={{ focusRingColor: "#3DAA7A" } as React.CSSProperties}
+          />
+          <button
+            className="px-6 py-3 rounded-lg text-white font-semibold"
+            style={{ backgroundColor: "#E8694A" }}
+          >
+            Buscar
+          </button>
+        </div>
+      </section>
+
+      {/* Grid de experiencias — placeholder */}
+      <section className="max-w-6xl mx-auto px-4 pb-20">
+        <h2 className="text-2xl font-semibold text-gray-800 mb-6">
+          Experiencias destacadas
+        </h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {[1, 2, 3, 4, 5, 6].map((i) => (
+            <div
+              key={i}
+              className="rounded-xl overflow-hidden shadow-sm border border-gray-100 bg-white animate-pulse"
+            >
+              <div className="h-48 bg-gray-200" />
+              <div className="p-4 space-y-2">
+                <div className="h-4 bg-gray-200 rounded w-3/4" />
+                <div className="h-3 bg-gray-100 rounded w-1/2" />
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+    </main>
+  );
+}
