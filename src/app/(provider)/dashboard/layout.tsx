@@ -2,13 +2,18 @@ import Link from "next/link";
 import Logo from "@/components/ui/Logo";
 import DashboardNav from "@/components/ui/DashboardNav";
 import LogoutButton from "@/components/ui/LogoutButton";
+import MobileDashboardNav from "@/components/ui/MobileDashboardNav";
 
 export default function DashboardLayout({ children }: { children: React.ReactNode }) {
   return (
     <div style={{ backgroundColor: "#FAFAF7", minHeight: "100vh" }}>
+
+      {/* Nav movil: top bar + drawer, solo visible en mobile */}
+      <MobileDashboardNav />
+
       <div className="flex">
 
-        {/* ── SIDEBAR ── */}
+        {/* Sidebar desktop, oculto en mobile */}
         <aside className="hidden md:flex flex-col w-60 min-h-screen bg-white border-r border-gray-100 py-6 px-4 sticky top-0 h-screen">
           <Link href="/" className="mb-8">
             <Logo size="sm" />
@@ -16,16 +21,17 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
           <DashboardNav />
           <div className="border-t border-gray-100 pt-4 mt-4">
             <Link href="/" className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm text-gray-500 hover:bg-gray-50">
-              <span>🔙</span> Ver marketplace
+              <span>&#x1F519;</span> Ver marketplace
             </Link>
             <LogoutButton />
           </div>
         </aside>
 
-        {/* ── CONTENIDO PRINCIPAL ── */}
-        <main className="flex-1 p-6 md:p-8 min-h-screen">
+        {/* Contenido principal */}
+        <main className="flex-1 p-4 md:p-8 min-h-screen">
           {children}
         </main>
+
       </div>
     </div>
   );
