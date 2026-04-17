@@ -115,6 +115,13 @@ export default function ProfilePage() {
             >
               📅 Ver mis reservas
             </Link>
+            <Link
+              href="/profile/wishlist"
+              className="mt-2 w-full py-2.5 rounded-xl text-sm font-semibold flex items-center justify-center gap-2 border-2"
+              style={{ borderColor: "#E8694A", color: "#E8694A" }}
+            >
+              🤍 Tours guardados
+            </Link>
           </div>
 
           {/* ── Columna principal ── */}

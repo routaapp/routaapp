@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 const NAV_ITEMS = [
   { href: "/dashboard", label: "Dashboard", icon: "📊" },
   { href: "/dashboard/experiences", label: "Mis experiencias", icon: "🗺️" },
+  { href: "/dashboard/departures", label: "Salidas", icon: "🗓️" },
   { href: "/dashboard/bookings", label: "Reservas", icon: "📅" },
   { href: "/dashboard/reviews", label: "Reseñas", icon: "⭐" },
   { href: "/dashboard/earnings", label: "Ganancias", icon: "💰" },
@@ -33,10 +34,4 @@ export default function DashboardNav() {
             }}
           >
             <span>{item.icon}</span>
-            {item.label}
-          </Link>
-        );
-      })}
-    </nav>
-  );
-}
+          

@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import { useState } from "react";
 
 interface ExperienceCardProps {
   id: string;
@@ -29,6 +32,14 @@ export default function ExperienceCard({
   category, emoji, duration, badge,
 }: ExperienceCardProps) {
   const color = categoryColors[category] ?? "#6B7280";
+  const [saved, setSaved] = useState(false);
+
+  const handleWishlist = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setSaved(prev => !prev);
+    // TODO: conectar con Supabase user_wishlists
+  };
 
   return (
     <Link href={`/experiences/${id}`}>
@@ -48,18 +59,28 @@ export default function ExperienceCard({
               {badge}
             </span>
           )}
-          <span className="absolute top-3 right-3 bg-white rounded-full px-2 py-0.5 text-xs font-medium text-gray-600 shadow-sm capitalize">
-            {category}
-          </span>
+          {/* Boton wishlist */}
+          <button
+            onClick={handleWishlist}
+            className="absolute top-3 right-3 w-8 h-8 rounded-full flex items-center justify-center shadow-sm transition-all hover:scale-110"
+            style={{
+              backgroundColor: saved ? "#E8694A" : "white",
+              border: saved ? "none" : "1px solid #E5E7EB",
+            }}
+            aria-label={saved ? "Quitar de guardados" : "Guardar tour"}
+            title={saved ? "Quitar de guardados" : "Guardar para despues"}
+          >
+            <span className="text-sm leading-none">{saved ? "❤️" : "🤍"}</span>
+          </button>
         </div>
 
         {/* Info */}
         <div className="p-4 flex flex-col flex-1">
           <p className="font-semibold text-gray-900 leading-snug">{title}</p>
-          <p className="text-sm text-gray-400 mt-1">📍 {location}</p>
+          <p className="text-sm text-gray-400 mt-1">&#128205; {location}</p>
 
           {duration && (
-            <p className="text-xs text-gray-400 mt-0.5">⏱ {duration}h</p>
+            <p className="text-xs text-gray-400 mt-0.5">&#8987; {duration}h</p>
           )}
 
           <div className="flex items-center justify-between mt-auto pt-3">
@@ -69,7 +90,7 @@ export default function ExperienceCard({
             </p>
             {rating && (
               <span className="text-xs text-gray-500 flex items-center gap-1">
-                ⭐ {rating.toFixed(1)}
+                &#11088; {rating.toFixed(1)}
                 {reviews && <span className="text-gray-300">({reviews})</span>}
               </span>
             )}

@@ -9,6 +9,7 @@ import LogoutButton from "@/components/ui/LogoutButton";
 const NAV_ITEMS = [
   { href: "/dashboard", label: "Dashboard", icon: "📊" },
   { href: "/dashboard/experiences", label: "Mis experiencias", icon: "🗺️" },
+  { href: "/dashboard/departures", label: "Salidas", icon: "🗓️" },
   { href: "/dashboard/bookings", label: "Reservas", icon: "📅" },
   { href: "/dashboard/reviews", label: "Reseñas", icon: "⭐" },
   { href: "/dashboard/earnings", label: "Ganancias", icon: "💰" },
@@ -145,10 +146,4 @@ export default function MobileDashboardNav() {
             className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm text-gray-500 hover:bg-gray-50"
           >
             <span>🔙</span> Ver marketplace
-          </Link>
-          <LogoutButton />
-        </div>
-      </div>
-    </>
-  );
-}
+          </Link
