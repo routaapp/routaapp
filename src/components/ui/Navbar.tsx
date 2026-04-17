@@ -67,21 +67,22 @@ export default function Navbar() {
                   </div>
                   {user.type === "traveler" ? (
                     <>
-                      <Link href="/profile" onClick={() => setUserMenuOpen(false)} className="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50"><span>👤</span> Mi perfil</Link>
-                      <Link href="/profile/bookings" onClick={() => setUserMenuOpen(false)} className="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50"><span>📅</span> Mis reservas</Link>
-                      <Link href="/experiences" onClick={() => setUserMenuOpen(false)} className="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50"><span>🗺️</span> Explorar</Link>
+                      <Link href="/profile" onClick={() => setUserMenuOpen(false)} className="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50"><span>&#128100;</span> Mi perfil</Link>
+                      <Link href="/profile/bookings" onClick={() => setUserMenuOpen(false)} className="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50"><span>&#128197;</span> Mis reservas</Link>
+                      <Link href="/profile/wishlist" onClick={() => setUserMenuOpen(false)} className="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50"><span>&#129293;</span> Tours guardados</Link>
+                      <Link href="/experiences" onClick={() => setUserMenuOpen(false)} className="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50"><span>&#128506;</span> Explorar</Link>
                     </>
                   ) : (
                     <>
-                      <Link href="/dashboard" onClick={() => setUserMenuOpen(false)} className="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50"><span>📊</span> Dashboard</Link>
-                      <Link href="/dashboard/experiences" onClick={() => setUserMenuOpen(false)} className="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50"><span>🗺️</span> Mis experiencias</Link>
-                      <Link href="/dashboard/bookings" onClick={() => setUserMenuOpen(false)} className="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50"><span>📅</span> Reservas</Link>
-                      <Link href="/dashboard/profile" onClick={() => setUserMenuOpen(false)} className="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50"><span>⚙️</span> Configuración</Link>
+                      <Link href="/dashboard" onClick={() => setUserMenuOpen(false)} className="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50"><span>&#128202;</span> Dashboard</Link>
+                      <Link href="/dashboard/experiences" onClick={() => setUserMenuOpen(false)} className="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50"><span>&#128506;</span> Mis experiencias</Link>
+                      <Link href="/dashboard/bookings" onClick={() => setUserMenuOpen(false)} className="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50"><span>&#128197;</span> Reservas</Link>
+                      <Link href="/dashboard/profile" onClick={() => setUserMenuOpen(false)} className="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50"><span>&#9881;&#65039;</span> Configuración</Link>
                     </>
                   )}
                   <div className="border-t border-gray-50 mt-1 pt-1">
                     <button onClick={handleLogout} className="w-full flex items-center gap-3 px-4 py-2.5 text-sm text-red-500 hover:bg-red-50">
-                      <span>🚪</span> Cerrar sesión
+                      <span>&#128682;</span> Cerrar sesión
                     </button>
                   </div>
                 </div>
@@ -115,16 +116,17 @@ export default function Navbar() {
               </div>
               {user.type === "traveler" ? (
                 <>
-                  <Link href="/profile" onClick={() => setMenuOpen(false)} className="text-sm text-gray-600 py-1.5 flex items-center gap-2"><span>👤</span> Mi perfil</Link>
-                  <Link href="/profile/bookings" onClick={() => setMenuOpen(false)} className="text-sm text-gray-600 py-1.5 flex items-center gap-2"><span>📅</span> Mis reservas</Link>
+                  <Link href="/profile" onClick={() => setMenuOpen(false)} className="text-sm text-gray-600 py-1.5 flex items-center gap-2"><span>&#128100;</span> Mi perfil</Link>
+                  <Link href="/profile/bookings" onClick={() => setMenuOpen(false)} className="text-sm text-gray-600 py-1.5 flex items-center gap-2"><span>&#128197;</span> Mis reservas</Link>
+                  <Link href="/profile/wishlist" onClick={() => setMenuOpen(false)} className="text-sm text-gray-600 py-1.5 flex items-center gap-2"><span>&#129293;</span> Tours guardados</Link>
                 </>
               ) : (
                 <>
-                  <Link href="/dashboard" onClick={() => setMenuOpen(false)} className="text-sm text-gray-600 py-1.5 flex items-center gap-2"><span>📊</span> Dashboard</Link>
-                  <Link href="/dashboard/experiences" onClick={() => setMenuOpen(false)} className="text-sm text-gray-600 py-1.5 flex items-center gap-2"><span>🗺️</span> Mis experiencias</Link>
+                  <Link href="/dashboard" onClick={() => setMenuOpen(false)} className="text-sm text-gray-600 py-1.5 flex items-center gap-2"><span>&#128202;</span> Dashboard</Link>
+                  <Link href="/dashboard/experiences" onClick={() => setMenuOpen(false)} className="text-sm text-gray-600 py-1.5 flex items-center gap-2"><span>&#128506;</span> Mis experiencias</Link>
                 </>
               )}
-              <button onClick={() => { handleLogout(); setMenuOpen(false); }} className="text-sm text-red-500 py-1.5 flex items-center gap-2 mt-1"><span>🚪</span> Cerrar sesión</button>
+              <button onClick={() => { handleLogout(); setMenuOpen(false); }} className="text-sm text-red-500 py-1.5 flex items-center gap-2 mt-1"><span>&#128682;</span> Cerrar sesión</button>
             </>
           ) : (
             <div className="flex gap-2 pt-2">
