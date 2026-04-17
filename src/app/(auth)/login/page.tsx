@@ -134,7 +134,7 @@ export default function LoginPage() {
 
           {/* Toggle viajero / proveedor */}
           <div className="flex rounded-xl overflow-hidden border border-gray-200 mb-6">
-            {([["traveler", "\U0001f9f3 Soy viajero"], ["provider", "\U0001f9ed Soy proveedor"]] as [AccountType, string][]).map(([type, label]) => (
+            {([["traveler", "🧳 Soy viajero"], ["provider", "🧭 Soy proveedor"]] as [AccountType, string][]).map(([type, label]) => (
               <button key={type} type="button" onClick={() => setAccountType(type)} className="flex-1 py-2.5 text-sm font-semibold transition-colors"
                 style={{ backgroundColor: accountType === type ? "#2B5E41" : "white", color: accountType === type ? "white" : "#6b7280" }}>
                 {label}
