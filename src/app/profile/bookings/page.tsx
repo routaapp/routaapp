@@ -50,9 +50,10 @@ function StarRating({ value, onChange }: { value: number; onChange: (v: number) 
           onClick={() => onChange(star)}
           onMouseEnter={() => setHover(star)}
           onMouseLeave={() => setHover(0)}
-          className="text-2xl transition-transform hover:scale-110"
+          className="transition-transform hover:scale-125 focus:outline-none"
+          style={{ fontSize: "28px", lineHeight: 1, color: star <= (hover || value) ? "#F59E0B" : "#D1D5DB" }}
         >
-          <span style={{ color: star <= (hover || value) ? "#F59E0B" : "#D1D5DB" }}>&#11088;</span>
+          &#9733;
         </button>
       ))}
     </div>
@@ -93,10 +94,11 @@ export default function ProfileBookingsPage() {
 
             return (
               <div key={b.id} className="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
-                {/* Card principal — clickeable solo para ir al tour */}
                 <div className="p-5">
                   <div className="flex items-start gap-4">
-                    <Link href={`/experiences/${b.experience_id}`} className="w-14 h-14 rounded-xl flex items-center justify-center text-2xl flex-shrink-0 hover:opacity-80 transition-opacity" style={{ backgroundColor: "#6FCFAB20" }}>
+                    <Link href={`/experiences/${b.experience_id}`}
+                      className="w-14 h-14 rounded-xl flex items-center justify-center text-2xl flex-shrink-0 hover:opacity-80 transition-opacity"
+                      style={{ backgroundColor: "#6FCFAB20" }}>
                       <span dangerouslySetInnerHTML={{ __html: b.emoji }} />
                     </Link>
                     <div className="flex-1 min-w-0">
@@ -104,7 +106,8 @@ export default function ProfileBookingsPage() {
                         <Link href={`/experiences/${b.experience_id}`} className="font-bold text-gray-900 hover:underline leading-snug">
                           {b.experience}
                         </Link>
-                        <span className="text-xs px-2.5 py-1 rounded-full font-medium flex-shrink-0" style={{ backgroundColor: s.bg, color: s.color }}>{s.label}</span>
+                        <span className="text-xs px-2.5 py-1 rounded-full font-medium flex-shrink-0"
+                          style={{ backgroundColor: s.bg, color: s.color }}>{s.label}</span>
                       </div>
                       <p className="text-sm text-gray-500">{b.provider} · {b.location}</p>
                       <div className="flex flex-wrap gap-3 mt-2 text-sm text-gray-600">
@@ -124,7 +127,8 @@ export default function ProfileBookingsPage() {
                     </Link>
                     {isCompleted && (
                       alreadyReviewed ? (
-                        <span className="text-xs font-medium px-3 py-1.5 rounded-lg flex items-center gap-1" style={{ backgroundColor: "#DCFCE7", color: "#166534" }}>
+                        <span className="text-xs font-medium px-3 py-1.5 rounded-lg flex items-center gap-1"
+                          style={{ backgroundColor: "#DCFCE7", color: "#166534" }}>
                           &#10003; Reseña enviada
                         </span>
                       ) : (
@@ -133,46 +137,47 @@ export default function ProfileBookingsPage() {
                           className="text-xs font-semibold px-3 py-1.5 rounded-lg text-white transition-opacity hover:opacity-90"
                           style={{ backgroundColor: "#E8694A" }}
                         >
-                          &#11088; {isReviewOpen ? "Cerrar" : "Calificar este tour"}
+                          &#9733; {isReviewOpen ? "Cerrar" : "Calificar este tour"}
                         </button>
                       )
                     )}
                   </div>
                 </div>
 
-                {/* Panel de reseña (se expande) */}
+                {/* Panel de reseña */}
                 {isReviewOpen && !alreadyReviewed && (
                   <div className="border-t border-gray-100 px-5 py-5" style={{ backgroundColor: "#FAFAF7" }}>
-                    <p className="text-sm font-semibold text-gray-800 mb-3">&#128172; ¿Cómo fue tu experiencia?</p>
+                    <p className="text-sm font-semibold text-gray-800 mb-3">¿Cómo fue tu experiencia?</p>
                     <StarRating value={stars[b.id] ?? 0} onChange={v => setStars(prev => ({ ...prev, [b.id]: v }))} />
                     {stars[b.id] > 0 && (
-                      <div className="mt-3 space-y-3">
-                        <textarea
-                          rows={3}
-                          value={comment[b.id] ?? ""}
-                          onChange={e => setComment(prev => ({ ...prev, [b.id]: e.target.value }))}
-                          placeholder="Cuéntanos más sobre tu visita... (opcional)"
-                          className="w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-400 bg-white resize-none"
-                        />
-                        <div className="flex gap-2">
-                          <button
-                            type="button"
-                            onClick={() => setReviewOpen(null)}
-                            className="flex-1 py-2 rounded-xl border border-gray-200 text-sm text-gray-500 hover:bg-gray-50"
-                          >
-                            Cancelar
-                          </button>
-                          <button
-                            type="button"
-                            onClick={() => handleSubmitReview(b.id)}
-                            className="flex-1 py-2 rounded-xl text-white text-sm font-semibold transition-opacity hover:opacity-90"
-                            style={{ backgroundColor: "#3DAA7A" }}
-                          >
-                            Enviar reseña
-                          </button>
-                        </div>
-                      </div>
+                      <p className="text-xs text-gray-400 mt-1 mb-3">
+                        {["", "Malo", "Regular", "Bueno", "Muy bueno", "Excelente"][stars[b.id]]}
+                      </p>
                     )}
+                    <div className="mt-3 space-y-3">
+                      <textarea
+                        rows={3}
+                        value={comment[b.id] ?? ""}
+                        onChange={e => setComment(prev => ({ ...prev, [b.id]: e.target.value }))}
+                        placeholder="Cuéntanos más sobre tu visita… (opcional)"
+                        className="w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-400 bg-white resize-none"
+                      />
+                      <div className="flex gap-2">
+                        <button type="button" onClick={() => setReviewOpen(null)}
+                          className="flex-1 py-2 rounded-xl border border-gray-200 text-sm text-gray-500 hover:bg-gray-50">
+                          Cancelar
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() => handleSubmitReview(b.id)}
+                          disabled={!stars[b.id]}
+                          className="flex-1 py-2 rounded-xl text-white text-sm font-semibold transition-opacity hover:opacity-90 disabled:opacity-40"
+                          style={{ backgroundColor: "#3DAA7A" }}
+                        >
+                          Enviar reseña
+                        </button>
+                      </div>
+                    </div>
                   </div>
                 )}
               </div>
