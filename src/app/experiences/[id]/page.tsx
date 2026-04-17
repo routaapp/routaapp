@@ -39,9 +39,9 @@ const RELATED = [
 ];
 
 const REVIEWS_PLACEHOLDER = [
-  { name: "Maria G.", country: "\U0001F1F2\U0001F1FD", rating: 5, comment: "Una experiencia increible. El guia fue muy profesional y los paisajes son impresionantes.", date: "Marzo 2026", verified: true },
-  { name: "Carlos V.", country: "\U0001F1E8\U0001F1F4", rating: 5, comment: "Supero todas mis expectativas. El almuerzo tipico estaba delicioso y las cuevas tainas son unicas.", date: "Febrero 2026", verified: true },
-  { name: "Ana L.", country: "\U0001F1F5\U0001F1F7", rating: 4, comment: "Muy buena organizacion. Salimos un poco tarde pero todo lo demas fue perfecto.", date: "Enero 2026", verified: true },
+  { name: "Maria G.", country: "🇲🇽", rating: 5, comment: "Una experiencia increible. El guia fue muy profesional y los paisajes son impresionantes.", date: "Marzo 2026", verified: true },
+  { name: "Carlos V.", country: "🇨🇴", rating: 5, comment: "Supero todas mis expectativas. El almuerzo tipico estaba delicioso y las cuevas tainas son unicas.", date: "Febrero 2026", verified: true },
+  { name: "Ana L.", country: "🇵🇷", rating: 4, comment: "Muy buena organizacion. Salimos un poco tarde pero todo lo demas fue perfecto.", date: "Enero 2026", verified: true },
 ];
 
 interface Props { params: Promise<{ id: string }> }

@@ -9,13 +9,13 @@ import { setMockUser } from "@/lib/mock-auth";
 type AccountType = "traveler" | "provider";
 
 const PANEL_CONTENT = {
-  traveler: { title: "Miles de experiencias\nte est\u00e1n esperando", subtitle: "Gu\u00edas locales verificados. Pagos seguros. Aventuras reales en LATAM.", stats: [["500+", "Experiencias"], ["200+", "Gu\u00edas"], ["\u2605 4.8", "Rating"]] },
-  provider: { title: "Gestiona tu negocio\ndesde cualquier lugar", subtitle: "Dashboard completo. Reservas en tiempo real. Pagos autom\u00e1ticos.", stats: [["27", "Reservas activas"], ["$1,240", "Este mes"], ["\u2605 4.8", "Rating"]] },
+  traveler: { title: "Miles de experiencias\nte están esperando", subtitle: "Guías locales verificados. Pagos seguros. Aventuras reales en LATAM.", stats: [["500+", "Experiencias"], ["200+", "Guías"], ["★ 4.8", "Rating"]] },
+  provider: { title: "Gestiona tu negocio\ndesde cualquier lugar", subtitle: "Dashboard completo. Reservas en tiempo real. Pagos automáticos.", stats: [["27", "Reservas activas"], ["$1,240", "Este mes"], ["★ 4.8", "Rating"]] },
 };
 
 const DEMO_USERS = {
-  traveler: { name: "Mar\u00eda Gonz\u00e1lez", email: "maria@email.com" },
-  provider: { name: "Tours Saman\u00e1 Pro", email: "tours@samana.com" },
+  traveler: { name: "María González", email: "maria@email.com" },
+  provider: { name: "Tours Samaná Pro", email: "tours@samana.com" },
 };
 
 function GoogleIcon() {
@@ -122,7 +122,7 @@ export default function LoginPage() {
             ))}
           </div>
         </div>
-        <p className="text-green-300 text-xs">\u00a9 2026 Routa \u2014 itsrouta.com</p>
+        <p className="text-green-300 text-xs">© 2026 Routa — itsrouta.com</p>
       </div>
 
       {/* Formulario */}
@@ -130,7 +130,7 @@ export default function LoginPage() {
         <div className="w-full max-w-sm">
           <div className="lg:hidden mb-8 flex justify-center"><Logo size="md" /></div>
           <h1 className="text-2xl font-bold text-gray-900 mb-1">Bienvenido de vuelta</h1>
-          <p className="text-gray-400 text-sm mb-6">Inicia sesi\u00f3n en tu cuenta</p>
+          <p className="text-gray-400 text-sm mb-6">Inicia sesión en tu cuenta</p>
 
           {/* Toggle viajero / proveedor */}
           <div className="flex rounded-xl overflow-hidden border border-gray-200 mb-6">
@@ -161,7 +161,7 @@ export default function LoginPage() {
 
           <div className="relative my-5">
             <div className="absolute inset-0 flex items-center"><div className="w-full border-t border-gray-200" /></div>
-            <div className="relative flex justify-center text-xs text-gray-400"><span className="px-3 bg-[#FAFAF7]">o inicia sesi\u00f3n con email</span></div>
+            <div className="relative flex justify-center text-xs text-gray-400"><span className="px-3 bg-[#FAFAF7]">o inicia sesión con email</span></div>
           </div>
 
           <form onSubmit={handleLogin} className="space-y-4">
@@ -172,19 +172,19 @@ export default function LoginPage() {
             </div>
             <div>
               <div className="flex justify-between mb-1">
-                <label className="text-sm font-medium text-gray-700">Contrase\u00f1a</label>
-                <Link href="/forgot-password" className="text-xs hover:underline" style={{ color: "#3DAA7A" }}>\u00bfOlvidaste tu contrase\u00f1a?</Link>
+                <label className="text-sm font-medium text-gray-700">Contraseña</label>
+                <Link href="/forgot-password" className="text-xs hover:underline" style={{ color: "#3DAA7A" }}>¿Olvidaste tu contraseña?</Link>
               </div>
-              <input type="password" value={password} onChange={e => setPassword(e.target.value)} required placeholder="\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022"
+              <input type="password" value={password} onChange={e => setPassword(e.target.value)} required placeholder="••••••••"
                 className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-green-400 bg-white" />
             </div>
             <button type="submit" disabled={loading} className="w-full py-3.5 rounded-xl text-white font-semibold text-sm disabled:opacity-60 flex items-center justify-center gap-2" style={{ backgroundColor: "#E8694A" }}>
-              {loading ? <><Spinner />Entrando...</> : (accountType === "provider" ? "Entrar al dashboard \u2192" : "Iniciar sesi\u00f3n")}
+              {loading ? <><Spinner />Entrando...</> : (accountType === "provider" ? "Entrar al dashboard →" : "Iniciar sesión")}
             </button>
           </form>
           <p className="text-center text-sm text-gray-500 mt-6">
-            \u00bfNo tienes cuenta?{" "}
-            <Link href="/signup" className="font-semibold hover:underline" style={{ color: "#3DAA7A" }}>Reg\u00edstrate gratis</Link>
+            ¿No tienes cuenta?{" "}
+            <Link href="/signup" className="font-semibold hover:underline" style={{ color: "#3DAA7A" }}>Regístrate gratis</Link>
           </p>
         </div>
       </div>
